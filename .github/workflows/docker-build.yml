@@ -23,9 +23,9 @@ jobs:
 
     - name: Build and push Docker image
       env:
+        AWS_REGION: us-east-2  # (ohio)
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_REGION: us-east-2  # (ohio)
       run: |
         docker build -t my-lambda-image .
         docker tag my-lambda-image:latest 550513526501.dkr.ecr.us-east-2.amazonaws.com/lambda_docker_deploy:latest
